@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "strict": true,
+    "paths": {
+      "@/*": [ "src/*" ],
+      "tasks/*": [ "src/tasks/*" ],
+      "options/*": [ "src/options/*" ],
+      "utils/*": [ "src/utils/*" ],
+      "types/*": [ "src/types/*" ]
+    },
+    "allowSyntheticDefaultImports": true
+  }
+}
