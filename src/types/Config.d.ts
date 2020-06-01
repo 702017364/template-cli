@@ -18,4 +18,6 @@ export default interface Config {
   rules: RollupOptions,
   dir: DirConfig | null;
   sourcemap: boolean;
+  assetsNameIsHash: boolean;
+  limit: number;
 }

@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "rollup": "rollup -c",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "build": "npm run rollup & npm run gulp",
+    "debug": "npm run rollup & node --inspect --debug-brk node_modules/gulp/bin/gulp.js"
   },
   "author": "vope",
   "license": "ISC",
@@ -14,15 +16,24 @@
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/generator": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/parser": "^7.9.6",
+    "@babel/traverse": "^7.9.6",
+    "babel": "^6.23.0",
     "cheerio": "^1.0.0-rc.3",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-watch": "^5.0.1",
     "lodash": "^4.17.15",
     "minimist": "^1.2.5",
     "node-sass": "^4.14.0",
+    "plugin-error": "^1.0.1",
     "rollup": "^2.1.0",
     "rollup-plugin-alias": "^2.2.0",
     "rollup-plugin-babel": "^4.4.0",
@@ -30,9 +41,12 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript2": "^0.26.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
+    "@types/babel__traverse": "^7.0.11",
     "@types/cheerio": "^0.22.18",
     "@types/gulp": "^4.0.6",
     "@types/gulp-rename": "0.0.33",

@@ -4,12 +4,14 @@ import compiler from 'node-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import clean from 'gulp-clean-css';
 import gulpRename from 'gulp-rename';
+import through2 from 'through2';
 import { absDirHash } from '@/options/dirHash';
 import develop from '@/options/develop';
-import emptyTask from '@/utils/emptyTask';
 import transfer from '@/options/transfer';
 import { config } from '@/options/config';
-import dist from '@/options/dist';
+import { absolute } from '@/options/dist';
+import loader from '@/components/url-loader';
+
 
 (sass as any).compiler = compiler;
 
@@ -21,15 +23,20 @@ const rename = (() => {
   } else if(type === 'function') {
     return gulpRename;
   } else {
-    return emptyTask;
+    return through2.obj();
   }
 })();
 
 // 任务：编译 scss
 export default () => {
-  return gulp.src(absDirHash.styles.output)
+  return gulp
+    .src(absDirHash.styles.output, {
+      allowEmpty: true,
+    })
     .pipe(
-      develop ? sourcemaps.init() : emptyTask
+      develop
+        ? sourcemaps.init()
+        : through2.obj(),
     )
     .pipe(
       sass({
@@ -37,15 +44,22 @@ export default () => {
         includePaths: [ transfer ],
       }).on('error', sass.logError)
     )
+    .pipe(loader({
+      limit: config.limit,
+    }))
     .pipe(
-      develop ? emptyTask : clean()
+      develop
+        ? through2.obj()
+        : clean(),
     )
     .pipe(rename)
     .pipe(
-      develop ? sourcemaps.write('./') : emptyTask
+      develop
+        ? sourcemaps.write('./')
+        : through2.obj(),
     )
     .pipe(
-      gulp.dest(dist.absolute.bin)
+      gulp.dest(absolute.bin),
     )
   ;
 };

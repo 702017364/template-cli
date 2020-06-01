@@ -18,7 +18,9 @@ const baseConfig: Config = {
   browsersync: null,
   rules: {},
   dir: null,
-  sourcemap: false,
+  sourcemap: false, // 是否开始 map 包(默认 build 是不开启)
+  assetsNameIsHash: false, // assets 是否使用 hash 值进行命名(false 则添加文件夹前缀)
+  limit: 8192, // 指定被内联的资源大小
 };
 
 // cli 用户配置
