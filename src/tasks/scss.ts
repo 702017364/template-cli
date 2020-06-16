@@ -11,6 +11,7 @@ import transfer from '@/options/transfer';
 import { config } from '@/options/config';
 import { absolute } from '@/options/dist';
 import loader from '@/components/url-loader';
+import csstree from '@/components/csstree';
 
 
 (sass as any).compiler = compiler;
@@ -46,6 +47,9 @@ export default () => {
     )
     .pipe(loader({
       limit: config.limit,
+    }))
+    .pipe(csstree({
+      
     }))
     .pipe(
       develop

@@ -9,7 +9,7 @@ export const baseDirHash: DirConfig = Object.assign({
   dist: 'dist',
   views: 'views',
   styles: 'styles',
-  src: 'src',
+  src: 'src_clone',
   static: 'static',
   assets: 'assets',
 }, config.dir || {});

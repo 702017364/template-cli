@@ -16,13 +16,12 @@ interface Option extends Query {
 }
 
 const RE_ALIAS = /^(\.\/)?@?/g; // 匹配别名
-const RE_PATH = /\\/g; // 斜杆路径
 const RE_GETURL = /\/getUrl\.js$/; // 匹配 getUrl.js 的导入
 const RE_EXPORTS_END = /['"];$/; // 判断输出 module.exports 时，结尾是否添加了 ';' 字符
 
 const { length: EXPORTS_START } = 'module.exports = ';
 
-const method = (option: Option = {}) => {
+export default (option: Option = {}) => {
   const RE_IMAGE = /\.(jpe?g|gif|png|svg)$/;
   return through2.obj(function(chunk, enc, cb) {
     if(chunk.isNull()) {
@@ -94,5 +93,3 @@ const method = (option: Option = {}) => {
     );
   });
 };
-
-export default method;

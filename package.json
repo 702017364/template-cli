@@ -23,6 +23,7 @@
     "babel": "^6.23.0",
     "cheerio": "^1.0.0-rc.3",
     "css-loader": "^3.5.3",
+    "css-tree": "^1.0.0-alpha.39",
     "file-loader": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
