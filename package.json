@@ -33,7 +33,7 @@
     "gulp-watch": "^5.0.1",
     "lodash": "^4.17.15",
     "minimist": "^1.2.5",
-    "node-sass": "^4.14.0",
+    "node-sass": "^7.0.0",
     "plugin-error": "^1.0.1",
     "rollup": "^2.1.0",
     "rollup-plugin-alias": "^2.2.0",
